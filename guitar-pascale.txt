@@ -1,0 +1,195 @@
+{code de serial:aau4-qa5a-a301-a100} 
+{by iheb informatique@copy right :) you arren t allowed 
+to delete the copy right} 
+uses wincrt; 
+var 
+x,i,a,j:integer; 
+ch:string; 
+m:string; 
+function lire(var ch:string):string; 
+begin 
+writeln('donner le code serial'); 
+end; 
+function serial(var m:string):string; 
+var 
+ch,ch1,ch2,ch3,ch4,r:string; 
+cha,j,x,e,s,p,i,k,l:integer; 
+begin 
+lire(ch); 
+readln(ch); 
+delete(ch,5,1); 
+delete(ch,9,1); 
+delete(ch,13,1); 
+ch1:=ch[1]+ch[2]+ch[3]+ch[4]; 
+ch2:=ch[5]+ch[6]+ch[7]+ch[8]; 
+ch3:=ch[9]+ch[10]+ch[11]+ch[12]; 
+ch4:=ch[13]+ch[14]+ch[15]+ch[16]; 
+p:=0; 
+r:=' '; 
+for i:=1 to length(ch1) do 
+if ch1[i] in ['a'..'z'] then 
+p:=ord(ch1[i])+p 
+else if 
+ch1[i]in['0'..'9'] then 
+val(ch1[i],s,e); 
+cha:=(s+p) div 3; 
+r:=chr(cha); 
+p:=0; 
+for j:=1 to length(ch2) do 
+if ch2[j] in ['a'..'z'] then 
+p:=ord(ch2[j])+p 
+else if 
+ch1[i]in['0'..'9'] then 
+val(ch2[j],s,e); 
+cha:=(s+p) div 3; 
+r:=r+chr(cha); 
+p:=0; 
+for k:=1 to length(ch3) do 
+if ch3[k] in ['a'..'z'] then 
+p:=ord(ch3[k])+p 
+else if 
+ch3[k]in['0'..'9'] then 
+val(ch3[j],s,e); 
+cha:=p+s+3; 
+r:=r+chr(cha); 
+p:=0; 
+for l:=1 to length(ch4) do 
+if ch4[l] in ['a'..'z'] then 
+p:=ord(ch4[l])+p 
+else if 
+ch4[l]in['0'..'9'] then 
+val(ch4[l],s,e); 
+cha:=p+s+1; 
+r:=r+chr(cha); 
+serial:=r; 
+end; 
+procedure wait (a:integer); 
+var 
+i,j:longint; 
+begin 
+for i:=1 to 90000 do 
+for j:=1 to 2000 do 
+if i=90000 then 
+clrscr; 
+end; 
+procedure point (a:integer); 
+var 
+i,j,k:longint; 
+begin 
+for i:=1 to 90000 do 
+for j:=1 to 1500 do 
+end; 
+procedure wait3 (a:integer); 
+var 
+i,j:longint; 
+begin 
+for i:=1 to 90000 do 
+for j:=1 to 5000 do 
+if i=90000 then 
+clrscr; 
+end; 
+procedure wait00 (a:integer); 
+var 
+i,j,k:longint; 
+begin 
+for i:=1 to 90000 do 
+for j:=1 to 1500 do 
+if i=50000 then 
+clrscr; 
+end; 
+
+procedure wait0 (a:integer); 
+var 
+i,j:longint; 
+begin 
+for i:=1 to 90000 do 
+for j:=1 to 2000 do 
+if i=80000 then 
+clrscr; 
+end; 
+begin 
+j:=0; 
+repeat 
+j:=j+1; 
+ch:='program encours d''éxecution '; 
+ch[28]:='.'; 
+writeln(ch); 
+point(a); 
+clrscr ; 
+ch[29]:='.'; 
+writeln(ch); 
+point(a); 
+clrscr; 
+ch[30]:='.'; 
+writeln(ch); 
+point(a); 
+clrscr ; 
+until 
+j=10; 
+clrscr ; 
+wait(a); 
+for i:=1 to 1000 do 
+begin 
+writeln('11111111111111111'); 
+writeln('000000000000000000000000'); 
+writeln('1111111111'); 
+end; 
+clrscr; 
+repeat 
+serial(m); 
+clrscr; 
+until 
+serial(m)='iheb'; 
+clrscr; 
+writeln('collection du donnees '); 
+wait3(a); 
+clrscr; 
+for i:=1 to 7000 do 
+begin 
+write('011001010010101010101010101') ; 
+end; 
+clrscr; 
+j:=0; 
+repeat 
+j:=j+1; 
+ch:='image du guitare att '; 
+ch[21]:='.'; 
+writeln(ch); 
+point(a); 
+clrscr ; 
+ch[22]:='.'; 
+writeln(ch); 
+point(a); 
+clrscr; 
+ch[23]:='.'; 
+writeln(ch); 
+point(a); 
+clrscr ; 
+until 
+j=10; 
+writeln('.....................................'); 
+writeln('..._.........../¤/.......................'); 
+writeln('..|.|........./¤.|......................'); 
+writeln('..°.|......../.¤.|......................'); 
+writeln('....°......./.¤..|......................'); 
+writeln('............\.../........|.............'); 
+writeln('.............|.|.........°...|\............'); 
+writeln('|............|.|............°.|..........'); 
+writeln('°|.....\.....|.|..............°..........'); 
+writeln('.°....|..\...|.|...../...................'); 
+writeln('......|....\_|.|..../.|....................'); 
+writeln('......|........|_./...|.................'); 
+writeln('.......\............./.................'); 
+writeln('.........\........../..................'); 
+writeln('..........|........|.........../|......'); 
+writeln('..........|..[--]..|..........|.°.......'); 
+writeln('..........|........|..........°.........'); 
+writeln('........./..........\..................'); 
+writeln('......../............\.................'); 
+writeln('......./.....[--].....\................'); 
+writeln('......|................|...............'); 
+writeln('.......\._.._.._..._../....................'); 
+writeln('.....................................'); 
+writeln('.....................................'); 
+
+end.

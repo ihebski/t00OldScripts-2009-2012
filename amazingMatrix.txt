@@ -1,0 +1,81 @@
+{create by iheb info prog space v3 16.07.12} 
+{copy right are reserved(respect this work enjoy :) :)} 
+uses wincrt; 
+var j:integer; 
+procedure wait(x:longint); 
+var 
+i,j:longint; 
+begin 
+for i:=1 to 90000 do 
+for j:=1 to x do 
+end; 
+procedure caract; 
+var 
+x,y,i:integer; 
+begin 
+randomize; 
+j:=0; 
+repeat 
+j:=j+1; 
+x:=random(80); 
+y:=random(25); 
+gotoxy(x,y); 
+write(chr(random(300))); 
+wait(10); 
+until 
+j=10; 
+end; 
+procedure view(pause:integer;msg:string); 
+var {copy right by iheb info IBS} 
+i:integer;ch:string; 
+begin 
+i:=0; 
+ch:=chr(32); 
+for i:=1 to 17 do 
+begin 
+ch:=ch+chr(32); 
+end; 
+repeat 
+i:=i+1; 
+caract; 
+gotoxy(31,11); 
+writeln(ch); 
+gotoxy(31,12); 
+writeln(' ',msg,' '); 
+gotoxy(31,13); 
+writeln(ch); 
+until 
+pause=i; 
+end; 
+procedure creator(msgh:string;msgb:string); 
+var 
+ch,ch2:string; 
+i:integer; 
+begin 
+ch:=chr(32); 
+for i:=1 to 7 do 
+begin 
+ch:=ch+chr(32); 
+end; 
+ch2:=chr(32); 
+for i:=1 to 17 do 
+begin 
+ch2:=ch2+chr(32); 
+end; 
+repeat 
+i:=i+1; 
+caract; 
+gotoxy(31,11); 
+writeln(ch,msgh,ch); 
+gotoxy(31,12); 
+writeln(' ',msgb,' '); 
+gotoxy(31,13); 
+writeln(ch2); 
+until 
+keypressed; 
+end; 
+begin 
+view(200,'Matrix'); 
+creator('by','iheb informatique'); 
+donewincrt; 
+end.

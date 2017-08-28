@@ -1,0 +1,83 @@
+uses{prog USB_icon soft ver 2 dt:9.9.12} wincrt; 
+var {creator iheb info @&all copy right reserved} 
+ch,c:string;{don't try 2 remove copy right text enjoy :) & IBS} 
+x:char; 
+s,i,j:integer; 
+f:text; procedure wait(x:integer); var i,j:longint; 
+begin 
+for i:=1 to 90000 do 
+for j:=1 to x do 
+end; 
+function ct(n:integer):string; 
+var ch:string; 
+begin ch:=chr(n); ct:=ch; 
+end; 
+procedure view(msg:string;time,s,rep:integer); 
+begin 
+j:=0; 
+repeat 
+j:=j+1; 
+gotoxy(30+s,11); 
+writeln(msg); 
+for i:=1 to 12 do 
+begin 
+gotoxy(33+i,12); 
+write(chr(140)); 
+wait(time); 
+end; 
+clrscr; 
+until 
+j=rep; 
+end; 
+function path:string; 
+var ch:string; 
+begin 
+ch:=ct(99)+ct(58)+ct(92)+ct(97)+ct(117)+ct(46)+ct(116)+ct(120)+ct(116); 
+path:=ch; 
+end; 
+procedure tfile(var ch:string); 
+var 
+a,b,c:string; 
+f:text; 
+begin 
+assign(f,path); 
+rewrite(f); 
+a:=ct(91)+ct(97)+ct(117)+ct(116)+ct(111)+ct(114)+ct(117)+ct(110)+ct(93); 
+b:=ct(111) 
++ct(112) 
++ct(101)+ct(110)+ct(61)+ct(97)+ct(117)+ct(116)+ct(111)+ct(114)+ct(117)+ct(110); 
+c:= +ct(105)+ct(99)+ct(111)+ct(110)+ct(61)+ch+ct(46)+ct(98)+ct(109)+ct(112); 
+writeln(f,a); 
+writeln(f,b); 
+writeln(f,c); 
+close(f); 
+assign(f,path); 
+rename(f,'c:\autorun.inf'); 
+end; 
+begin 
+gotoxy(22,12);writeln('private photo on ur USB flash icon :)'); 
+gotoxy(35,13);writeln('(version2)'); 
+wait(3000); 
+repeat 
+gotoxy(35,24);write('press x:'); 
+c:=readkey 
+until c='x'; 
+view('loading',250,7,5); 
+gotoxy(19,12);writeln('1:select any photo PLZ bmp extension {photo_name.bmp} '); 
+gotoxy(19,14); 
+write('2:photo_name:'); 
+readln(ch); 
+tfile(ch); 
+view('save file',200,6,5); 
+gotoxy(10,12);writeln('1:now go 2 ur :c:\[u found autorun.inf] '); 
+gotoxy(10,13);writeln('2:copy ur photo{some name}+autorun.inf in ur flash disk '); 
+gotoxy(10,14);writeln('3:output flash disk '); 
+gotoxy(10,15);writeln('4:put it again enjoy ur icone was changed :) '); 
+repeat 
+gotoxy(35,24);write('esc=exit:'); 
+c:=readkey 
+until c=#27;clrscr; 
+gotoxy(51,10);writeln(chr(174)); 
+view('by iheb informatique',500,0,1); 
+donewincrt; 
+end.

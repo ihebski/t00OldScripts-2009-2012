@@ -1,0 +1,46 @@
+{by iheb info@copy right original 7.9.2012 enjoy speaking & secret code :D} 
+uses wincrt; 
+var 
+a:string; 
+ch:char; 
+i,j,l:integer; 
+f:text; 
+const x=80;y=24; 
+procedure mil(ch:string); 
+var 
+s:integer; 
+begin 
+s:=length(ch); 
+gotoxy((x div 2)-s+(s div 2),y div 2); 
+write(ch); 
+end; 
+function formule(x:integer):integer; 
+var s,a,b,c:integer; 
+begin 
+s:=x *2; 
+formule:=s; 
+end; 
+function code(x:string):string; 
+var 
+s,t:integer; 
+ch:string; 
+begin 
+ch:=''; 
+for i:=1 to length(x) do 
+begin 
+s:=ord(x[i]); 
+t:=formule(s); 
+ch:=ch+chr(t); 
+end; 
+code:=ch; 
+end; 
+begin 
+mil('crypto_msg :)'); 
+writeln; 
+readln(a); 
+assign(f,'c:\crypto.txt'); 
+rewrite(f); 
+writeln(f,code(a)); 
+writeln(code(a)); 
+close(f); 
+end.

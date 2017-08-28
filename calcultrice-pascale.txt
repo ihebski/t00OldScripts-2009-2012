@@ -1,0 +1,143 @@
+{calculatrice simple de tt les operations +,-,*,/,^ 
+inventee par iheb informatique :) v03} 
+uses wincrt; 
+var 
+ch,m,m2:string; 
+i,a,e,j,b:integer; 
+c:char; 
+function multi(ch:string):integer; 
+var 
+j,i:integer; 
+m2,m:string; 
+s:longint; 
+begin 
+m2:=''; 
+m:=''; 
+for i:=1 to pos('*',ch)-1 do 
+begin 
+m:=m+ch[i]; 
+val(m,a,e); 
+end; 
+for j:=pos('*',ch)+1 to length(ch) do 
+begin 
+m2:=m2+ch[j]; 
+val(m2,b,e); 
+end; 
+s:=a*b; 
+multi:=s; 
+end; 
+function somme(ch:string):integer; 
+var 
+j,i:integer; 
+m2,m:string; 
+s:longint; 
+begin 
+m2:=''; 
+m:=''; 
+for i:=1 to pos('+',ch)-1 do 
+begin 
+m:=m+ch[i]; 
+val(m,a,e); 
+end; 
+for j:=pos('+',ch)+1 to length(ch) do 
+begin 
+m2:=m2+ch[j]; 
+val(m2,b,e); 
+end; 
+s:=a+b; 
+somme:=s; 
+
+end; 
+function divi(ch:string):integer; 
+var 
+j,i:integer; 
+m2,m:string; 
+s:longint; 
+begin 
+m2:=''; 
+m:=''; 
+for i:=1 to pos('/',ch)-1 do 
+begin 
+m:=m+ch[i]; 
+val(m,a,e); 
+end; 
+for j:=pos('/',ch)+1 to length(ch) do 
+begin 
+m2:=m2+ch[j]; 
+val(m2,b,e); 
+end; 
+s:=a div b; 
+divi:=s; 
+end; 
+function pui(x,x2:integer):integer; 
+var 
+i:integer; 
+s:longint; 
+begin 
+s:=1; 
+for i:=1 to x2 do 
+s:=s*x; 
+pui:=s; 
+end; 
+function puisi(ch:string):integer; 
+var 
+m,m2:string; 
+i,x,e,j,x2:integer; 
+begin 
+m2:=''; 
+m:=''; 
+for i:=1 to pos('^',ch)-1 do 
+begin 
+m:=m+ch[i]; 
+val(m,x,e); 
+end; 
+for j:=pos('^',ch)+1 to length(ch) do 
+begin 
+m2:=m2+ch[j]; 
+val(m2,x2,e); 
+end; 
+puisi:=pui(x,x2); 
+end; 
+function diffi(ch:string):integer; 
+var 
+j,i:integer; 
+m2,m:string; 
+s:longint; 
+begin 
+m2:=''; 
+m:=''; 
+for i:=1 to pos('-',ch)-1 do 
+begin 
+m:=m+ch[i]; 
+val(m,a,e); 
+end; 
+for j:=pos('-',ch)+1 to length(ch) do 
+begin 
+m2:=m2+ch[j]; 
+val(m2,b,e); 
+end; 
+s:=a - b; 
+diffi:=s; 
+end; 
+begin 
+writeln('entrez les donnees sous forme x+x {exp:2+3 or 5^4 or 4-2}}');{^ signe puissanse {exp:2^2]} 
+repeat 
+readln(ch); 
+for i:=1 to length(ch ) do 
+case ch[i] of 
+'+':writeln('=',somme(ch)); 
+'-':writeln('=',diffi(ch)); 
+'/':writeln('=',divi(ch)); 
+'*':writeln('=',multi(ch)); 
+'^':writeln('=',puisi(ch)); 
+end; 
+writeln('----------'); 
+writeln(' o/n/c'); 
+readln(c); 
+if c='c' then 
+clrscr; 
+until 
+c ='n'; 
+end. 
+{by iheb informatique@copy right pro calc.v03.03.03.12 
+tt les droits sont reservees a iheb informatique I.B.S} 

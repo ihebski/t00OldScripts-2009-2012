@@ -1,0 +1,47 @@
+{by iheb info @ prog decrypto v2 14.10.12 & enjoy speaking secrutely prt:2} 
+uses wincrt; 
+var 
+d,a:string; 
+i,j,l:integer; 
+f:text; 
+const x=80;y=24; 
+procedure mil(ch:string); 
+var 
+s:integer; 
+begin 
+s:=length(ch); 
+gotoxy((x div 2)-s+(s div 2),y div 2); 
+write(ch); 
+end; 
+function dcrypto(x:string):string; 
+var 
+s,t:integer; 
+ch:string; 
+begin 
+ch:=''; 
+for i:=1 to length(x) do 
+begin 
+s:=ord(d[i])div 2; 
+ch:=ch+chr(s); 
+end; 
+dcrypto:=ch; 
+end; 
+begin 
+assign(f,'c:\crypto.txt'); 
+{$I-} 
+reset(f); 
+{$I+} 
+if ioresult = 0 then 
+begin 
+mil('décryptage_msg :)'); 
+writeln ; 
+read(f,d); 
+close(f); 
+writeln(dcrypto(d)); 
+end 
+else 
+begin 
+assign(f,'c:\crypto.txt'); 
+rewrite(f); 
+end; 
+end.

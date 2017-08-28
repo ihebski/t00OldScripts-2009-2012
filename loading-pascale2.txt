@@ -1,0 +1,29 @@
+uses wincrt; 
+var 
+i,a,j:integer; 
+ch:string; 
+procedure wait (a:integer); 
+var 
+i,j,k:longint; 
+begin 
+for i:=1 to 90000 do 
+for j:=1 to 1500 do 
+end; 
+begin 
+repeat 
+ch:='loading '; 
+ch[8]:='.'; 
+writeln(ch); 
+wait(a); 
+clrscr ; 
+ch[9]:='.'; 
+writeln(ch); 
+wait(a); 
+clrscr; 
+ch[10]:='.'; 
+writeln(ch); 
+wait(a); 
+clrscr ; 
+until 
+j=50; 
+end.

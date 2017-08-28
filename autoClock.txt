@@ -1,0 +1,13 @@
+{l'instruction la plus court d'une montre automatique prog v6 12 } 
+{by iheb info IBS} 
+uses wincrt,windos; 
+var h,m,s,l:word; 
+begin 
+repeat 
+gettime(h,m,s,l); {be smart :)} 
+gotoxy(35,12); 
+writeln(h,':',m,':',s); 
+until 
+h=24; 
+{enjoy :)} 
+end. 

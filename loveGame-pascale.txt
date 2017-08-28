@@ -1,0 +1,104 @@
+uses{prog game_v1 22.8.12 proto passe idea aknow music prog nub 1020} wincrt; 
+var {iheb info I.B.S copy right @iheb forbidden 2 remove copy right text} 
+s,i,j,c:integer;{enjoy :)} 
+ch,ch2:string; 
+procedure wait(x:longint); 
+var i,j:longint; 
+begin 
+for i:=1 to 90000 do 
+for j:=1 to x do 
+end; function ligne(l:integer):string; 
+begin 
+for i:=1 to 20 do 
+begin 
+gotoxy(30+i,l); 
+write('*'); 
+end; 
+end; 
+procedure load(msg:string;time,s:integer); 
+begin 
+clrscr; 
+gotoxy(30+s,11); 
+writeln(msg); 
+for i:=1 to 12 do 
+begin 
+gotoxy(33+i,12); 
+write(chr(140)); 
+wait(time); 
+end; 
+clrscr; 
+end; 
+procedure generic; 
+begin clrscr; gotoxy(31,12);writeln('by iheb informatique');gotoxy(51,11);writeln(chr(169)); 
+end; 
+procedure view; 
+begin 
+for i:=1 to 35 do 
+begin 
+gotoxy(i,12); 
+writeln(chr(32),'couple game'); 
+wait(100); 
+end; 
+wait(2000); 
+clrscr; 
+ligne(8); 
+ligne(16); 
+gotoxy(20,6); 
+write('how much ur EX love u? find this with number '); 
+gotoxy(39,9); 
+writeln('1:start'); 
+gotoxy(39,11); 
+writeln('2:Exit'); 
+gotoxy(39,13); 
+writeln('3:generic'); 
+gotoxy(35,15); 
+write('select [1..3]: '); 
+readln(c); 
+end; 
+procedure read; 
+begin 
+clrscr; 
+repeat 
+gotoxy(31,12); 
+write('ur name : '); 
+readln(ch); 
+gotoxy(31,13); 
+write('ur Ex name: '); 
+readln(ch2); 
+until 
+(ch<>'')and (ch2<>''); 
+s:=0; 
+for i:=1 to length(ch) do 
+begin 
+s:=s+(ord(ch[i])-ord('a')+1); 
+end; 
+for i:=1 to length(ch2) do 
+begin 
+s:=s+(ord(ch2[i])-ord('a')+1); 
+end; 
+s:=(s div 4)*2; 
+randomize; 
+load('search',300,6);gotoxy(31,13); 
+writeln('love percentage :',s,'%');gotoxy(31,14); 
+writeln('ur luck :',random(s)+20,'%'); 
+repeat 
+writeln('1:play again ') ; 
+writeln('2:Exit :) '); 
+readln(j); 
+case j of 
+1:read; 
+2:donewincrt; 
+end; 
+until 
+j=2; 
+donewincrt; 
+end; 
+begin 
+view; 
+case c of 
+1:read; 
+2:donewincrt; 
+3:generic; 
+end; 
+readln;donewincrt; 
+end.

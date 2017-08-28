@@ -1,0 +1,143 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    result: TLabel;
+    add: TButton;
+    minus: TButton;
+    times: TButton;
+    devide: TButton;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    Button9: TButton;
+    Button0: TButton;
+    dot: TButton;
+    ButtonC: TButton;
+    ButtonEq: TButton;
+    procedure DigitButtonClick(sender: TObject);
+    procedure dotClick(sender: TObject);
+    procedure addClick(sender: TObject);
+    procedure minusClick(sender: TObject);
+    procedure timesClick(sender: TObject);
+    procedure devideClick(sender: TObject);
+    procedure ButtonCClick(sender: TObject);
+    procedure FromActivate(sender: TObject);
+    procedure ButtonEqClick(sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    r : double;
+    w : string;
+    dotentered : boolean;
+    startnew : boolean;
+    lastop, nextToLastOp : char;
+
+    procedure AddDigit(c:char);
+    procedure HandleOp(c:char);
+    procedure Reset;
+
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Reset;
+  begin
+    w:= ' ';
+    dotentered:= false;
+    r:= 0.0;
+    startnew:=false;
+    lastop:= ' ';
+
+  end;
+
+  procedure Tform1.AddDigit;
+  begin
+  if startnew then reset;
+  w:=w+c
+  end;
+
+  procedure TForm1.HandleOp;
+  var
+  x:double;
+  begin
+  if startnew then reset;
+  if length(w)>0 then
+  begin
+  x:=strtofloat(w);
+  if lastop<>' 'then
+  begin
+  case lastop of
+    '+': r:=r+x;
+    '-': r:=r-x;
+    '*': r:=r*x;
+    '/': r:=r/x;
+  end;
+  end
+  else r:=x;
+  w:= '';
+  dotentered:= false;
+  nextToLastOp:= lastop;
+  lastop:= c;
+  if (c in ['*','/']) and (nextToLastOp in ['+','-'])
+  then result.TLabel:=('+TLabel.result+')';
+  TLabel.text := result.text+c;
+  end
+  else beep;
+  end;
+
+  procedure Tform1.DigitButtonClick(sender: TObject);
+  begin
+  if sender is Tbutton
+  then if Tbutton(sender).name[4] in ['0'..'9']
+  then addDigit(Tbutton(sender).Name[4])
+  else beep;
+end;
+
+  procedure Tform1.dotClick(sender: TObject);
+  begin
+  if startnew then reset;
+  if not dotentered then begin addDigit('.'); end
+  else beep;
+
+  procedure TForm1.addClick(sender: TObject);
+  begin HandleOp('+'); end;
+
+  procedure TForm1.minusClick(sender: TObject);
+  begin HandleOp('-'); end;
+
+  procedure TForm1.timesClick(sender: TObject);
+  begin HandleOp('*'); end;
+
+  procedure TForm1.devideClick(sender: TObject);
+  begin HandleOp('/'); end;
+
+  procedure TForm1.ButtonCClick(sender: TObject);
+  begin reset; end;
+
+  procedure TForm1.FromActivate(sender: TObject);
+  begin reset; end;
+
+  procedure TForm1.ButtonEqClick(sender: TObject);
+  begin
+    HandleOp('=');
+    result.text:= result.text+floattostr(r);
+    startnew:= true;
+    end;

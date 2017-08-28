@@ -1,0 +1,38 @@
+{hi guys i create new load display like mobile apps load 
+i hope 2 use it enjoy :)} 
+uses wincrt; 
+var 
+i,j:integer; 
+procedure wait(x:longint); 
+var i,j:longint; 
+begin 
+for i:=1 to 90000 do 
+for j:=1 to x do 
+end; 
+begin 
+j:=0; 
+repeat 
+j:=j+1; 
+gotoxy(37,11); 
+writeln('loading'); 
+for i:=1 to 12 do 
+begin 
+gotoxy(33+i,12); 
+write(chr(140)); 
+wait(300); 
+end; 
+clrscr; 
+until 
+j=5; 
+gotoxy(30,11); 
+writeln('by iheb informatique :)'); 
+for i:=1 to 13 do 
+begin 
+gotoxy(33+i,12); 
+write(chr(140)); 
+wait(500); 
+end; 
+donewincrt; 
+end. 
+{prog_v1 18.8.12 nn proto v5.6 loading dispaly copy right reserved 
+iheb info I.B.S pascale ghost }
